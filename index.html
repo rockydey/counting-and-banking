@@ -16,9 +16,69 @@
 <body>
     <!-- Header Section Start -->
     <header class="my-5 container">
-        <h1 class="text-center text-success fs-1 fw-bold">Counting and Banking <img src="./Images/saving.png" alt="saving money"></h1>
+        <h1 class="text-center text-success fs-1 fw-bold">Counting and Banking <img src="./Images/saving.png"
+                alt="saving money"></h1>
     </header>
     <!-- Header Section End -->
+
+    <!-- Main Section Start -->
+    <main class="container row g-5 mx-auto">
+        <!-- Image Section -->
+        <section class="col-lg-8 col-12 d-flex align-items-center">
+            <img class="w-100 rounded" src="./Images/accounting.jpg" alt="accounting image">
+        </section>
+
+        <!-- Accounting Section -->
+        <section class="col-lg-4 col-12 bg-secondary bg-opacity-10 d-flex align-items-center rounded">
+            <div class="py-3 d-flex flex-column align-items-center">
+                <!-- Income -->
+                <div class="mb-2">
+                    <h4 class="text-center fs-5 fw-bold mb-2">Income</h4>
+                    <p class="row g-3 d-flex align-items-center mb-0">
+                        <span class="input-text-font col-3 text-right p-0">Income: </span>
+                        <input class="col-9 px-2 py-1 w-75 border-0 rounded bg-secondary bg-opacity-25" type="text" value="10000">
+                    </p>
+                </div>
+
+                <!-- Expenses -->
+                <div class="mb-2 d-flex flex-column align-items-center">
+                    <h4 class="text-center fs-5 fw-bold mb-2">Expenses</h4>
+                    <p class="mb-2 row g-3 d-flex align-items-center">
+                        <span class="input-text-font col-3">Food: </span>
+                        <input class="col-9 px-2 py-1 border-0 rounded bg-secondary bg-opacity-25" type="text" value="3000">
+                    </p>
+                    <p class="mb-2 row g-3 d-flex align-items-center">
+                        <span class="input-text-font col-3">Rent: </span>
+                        <input class="col-9 px-2 py-1 w-75 border-0 rounded bg-secondary bg-opacity-25" type="text" value="2000">
+                    </p>
+                    <p class="mb-2 row g-3 d-flex align-items-center">
+                        <span class="input-text-font col-3 p-0">Clothes: </span>
+                        <input class="col-9 px-2 py-1 w-75 border-0 rounded bg-secondary bg-opacity-25" type="text" value="500">
+                    </p>
+                    <button class="input-text-font fs-6 fw-bold px-5 py-2 bg-success border-0 rounded text-white mt-2">Calculate</button>
+                </div>
+
+                <!-- Total & Remaining -->
+                <div class="mb-2">
+                    <h4 class="text-center fs-5 fw-bold mb-2">Total Expenses: <span>5500</span></h4>
+                    <h4 class="text-center fs-5 fw-bold">Balance: <span>4500</span></h4>
+                </div>
+
+                <!-- Saving -->
+                <div class="mb-2 d-flex justify-content-center align-items-center">
+                    <span class="input-text-font">Save: </span><input class="ms-1 px-2 py-1 w-25 border-0 rounded bg-secondary bg-opacity-25" type="text" value="20"><span class="input-text-font fw-bold mx-2"> % </span>
+                    <button class="input-text-font input-text-font fs-6 fw-bold px-5 py-2 bg-success border-0 rounded text-white">Save</button>
+                </div>
+                
+                <!-- Total Saving & Remaining -->
+                <div>
+                    <h4 class="text-center fs-5 fw-bold">Saving Amount: <span>2000</span></h4>
+                    <h4 class="text-center fs-5 fw-bold">Remaining Balance: <span>2500</span></h4>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Main Section End -->
 
     <!-- JS Script File -->
     <script src="./js/count_n_save.js"></script>
