@@ -58,9 +58,9 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
             document.getElementById('balance').innerText = totalIncome;
         }
     }
-    else if (isNaN(totalIncome) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
+    else if (isNaN(totalIncome) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost) || totalIncome < 0) {
         document.getElementById('total-expenses').innerText = '0';
-        if (isNaN(totalIncome)) {
+        if (isNaN(totalIncome) || totalIncome < 0) {
             document.getElementById('balance').innerText = '0';
         }
         else {
@@ -78,12 +78,9 @@ document.getElementById("save-btn").addEventListener('click', function () {
     // Getting Value to know saving amount
     const totalInterest = getInputValue('total-interest');
     const totalIncome = getInputValue('total-income');
-    const foodCost = getInputValue('food-cost');
-    const rentCost = getInputValue('rent-cost');
-    const clothesCost = getInputValue('clothes-cost');
 
     // find total cost and save amount
-    const totalExpenses = totalCost(foodCost, rentCost, clothesCost);
+    const totalExpenses = totalCost(getInputValue('food-cost'), getInputValue('rent-cost'), getInputValue('clothes-cost'));
     const saveAmount = (totalIncome * totalInterest) / 100;
 
     // find remaining balance
@@ -94,13 +91,16 @@ document.getElementById("save-btn").addEventListener('click', function () {
         if (saveAmount > balance) {
             throw "Sorry, you don't have enough money.";
         }
+        else if (isNaN(totalInterest) || totalInterest < 0) {
+            throw 'Please provide an integer value.'
+        }
     }
     catch (error) {
         document.getElementById('liveAlertSave').innerText = error;
     }
 
     // Display outputs
-    if (saveAmount <= balance) {
+    if (saveAmount <= balance && saveAmount >= 0) {
         document.getElementById('liveAlertSave').innerText = '';
         document.getElementById('saving-amount').innerText = saveAmount;
         document.getElementById('remain-balance').innerText = remainAmount(balance, saveAmount);
