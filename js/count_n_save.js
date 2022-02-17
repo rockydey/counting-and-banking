@@ -38,12 +38,7 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
         }
     }
     catch (error) {
-        if (error == "Costs more than your income.") {
-            document.getElementById('liveAlertExpenses').innerText = error;
-        }
-        else {
-            alert(error);
-        }
+        document.getElementById('liveAlertExpenses').innerText = error;
     }
 
     // Display value
