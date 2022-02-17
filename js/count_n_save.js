@@ -29,10 +29,10 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
     try {
         if (totalIncome < 0 || foodCost < 0 || rentCost < 0 || clothesCost < 0) {
             throw 'Please provide a positive integer value.';
-        } 
+        }
         else if (isNaN(totalIncome) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
             throw "Please enter an integer value."
-        } 
+        }
         else if (totalIncome < totalExpenses) {
             throw "Costs more than your income."
         }
@@ -62,7 +62,7 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
         document.getElementById('total-expenses').innerText = '0';
         if (isNaN(totalIncome)) {
             document.getElementById('balance').innerText = '0';
-        } 
+        }
         else {
             document.getElementById('balance').innerText = totalIncome;
         }
@@ -87,11 +87,11 @@ document.getElementById("save-btn").addEventListener('click', function () {
     const saveAmount = (totalIncome * totalInterest) / 100;
 
     // find remaining balance
-    const remainBalance = remainAmount(totalIncome, totalExpenses);
+    const balance = remainAmount(totalIncome, totalExpenses);
 
     // Error Handling
     try {
-        if (saveAmount > remainBalance) {
+        if (saveAmount > balance) {
             throw "Sorry, you don't have enough money.";
         }
     }
@@ -100,13 +100,18 @@ document.getElementById("save-btn").addEventListener('click', function () {
     }
 
     // Display outputs
-    if (saveAmount <= remainBalance) {
+    if (saveAmount <= balance) {
         document.getElementById('liveAlertSave').innerText = '';
         document.getElementById('saving-amount').innerText = saveAmount;
-        document.getElementById('remain-balance').innerText = remainAmount(remainBalance, saveAmount);
-    } 
+        document.getElementById('remain-balance').innerText = remainAmount(balance, saveAmount);
+    }
     else {
         document.getElementById('saving-amount').innerText = '0';
-        document.getElementById('remain-balance').innerText = remainBalance;
+        if (isNaN(balance)) {
+            document.getElementById('remain-balance').innerText = '0';
+        }
+        else {
+            document.getElementById('remain-balance').innerText = balance;
+        }
     }
 });
