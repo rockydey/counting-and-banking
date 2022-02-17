@@ -14,6 +14,7 @@ function remainAmount(income, cost) {
     return income - cost;
 }
 
+// Event Listener for Calculate Cost
 document.getElementById('calculate-cost').addEventListener('click', function () {
     // Getting Value for Calculate Cost
     const totalIncome = getInputValue('total-income');
@@ -45,7 +46,6 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
         }
     }
 
-
     // Display value
     if (totalIncome >= 0 && foodCost >= 0 && rentCost >= 0 && clothesCost >= 0) {
         if (totalIncome >= totalExpenses) {
@@ -73,6 +73,7 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
     }
 });
 
+// Event Listener for Save Amount
 document.getElementById("save-btn").addEventListener('click', function () {
     // Getting Value to know saving amount
     const totalInterest = getInputValue('total-interest');
