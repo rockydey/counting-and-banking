@@ -22,15 +22,17 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
     const clothesCost = getInputValue('clothes-cost');
 
     // Adding total cost
-    const totalCostSum = totalCost(foodCost, rentCost, clothesCost);
+    const totalExpenses = totalCost(foodCost, rentCost, clothesCost);
 
     // Error Handling
     try {
         if (totalIncome < 0 || foodCost < 0 || rentCost < 0 || clothesCost < 0) {
             throw 'Please provide a positive integer value.';
-        } else if (isNaN(totalIncome) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
+        } 
+        else if (isNaN(totalIncome) || isNaN(foodCost) || isNaN(rentCost) || isNaN(clothesCost)) {
             throw "Please enter an integer value."
-        } else if (totalIncome < totalCostSum) {
+        } 
+        else if (totalIncome < totalExpenses) {
             throw "Costs more than your income."
         }
     }
@@ -46,10 +48,10 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
 
     // Display value
     if (totalIncome >= 0 && foodCost >= 0 && rentCost >= 0 && clothesCost >= 0) {
-        if (totalIncome >= totalCostSum) {
+        if (totalIncome >= totalExpenses) {
             document.getElementById('liveAlertExpenses').innerText = '';
-            document.getElementById('total-expenses').innerText = totalCostSum;
-            document.getElementById('balance').innerText = remainAmount(totalIncome, totalCostSum);
+            document.getElementById('total-expenses').innerText = totalExpenses;
+            document.getElementById('balance').innerText = remainAmount(totalIncome, totalExpenses);
         }
         else {
             document.getElementById('total-expenses').innerText = '0';
@@ -60,7 +62,8 @@ document.getElementById('calculate-cost').addEventListener('click', function () 
         document.getElementById('total-expenses').innerText = '0';
         if (isNaN(totalIncome)) {
             document.getElementById('balance').innerText = '0';
-        } else {
+        } 
+        else {
             document.getElementById('balance').innerText = totalIncome;
         }
     }
@@ -79,15 +82,15 @@ document.getElementById("save-btn").addEventListener('click', function () {
     const clothesCost = getInputValue('clothes-cost');
 
     // find total cost and save amount
-    const totalCostSum = totalCost(foodCost, rentCost, clothesCost);
+    const totalExpenses = totalCost(foodCost, rentCost, clothesCost);
     const saveAmount = (totalIncome * totalInterest) / 100;
 
     // find remaining balance
-    const remainBalanceAmount = remainAmount(totalIncome, totalCostSum);
+    const remainBalance = remainAmount(totalIncome, totalExpenses);
 
     // Error Handling
     try {
-        if (saveAmount > remainBalanceAmount) {
+        if (saveAmount > remainBalance) {
             throw "Sorry, you don't have enough money.";
         }
     }
@@ -96,12 +99,13 @@ document.getElementById("save-btn").addEventListener('click', function () {
     }
 
     // Display outputs
-    if (saveAmount <= remainBalanceAmount) {
+    if (saveAmount <= remainBalance) {
         document.getElementById('liveAlertSave').innerText = '';
         document.getElementById('saving-amount').innerText = saveAmount;
-        document.getElementById('remain-balance').innerText = remainAmount(remainBalanceAmount, saveAmount);
-    } else {
+        document.getElementById('remain-balance').innerText = remainAmount(remainBalance, saveAmount);
+    } 
+    else {
         document.getElementById('saving-amount').innerText = '0';
-        document.getElementById('remain-balance').innerText = remainBalanceAmount;
+        document.getElementById('remain-balance').innerText = remainBalance;
     }
 });
